@@ -1,0 +1,18 @@
+The SQL UNION operator combines the result of two or more SELECT statements.
+
+{ each SELECT statement within the UNION must have the same number of columns. The columns must also have similar data types. Also, the columns in each SELECT statement must be in the same order}
+
+
+-- Find a list of employee and branch names
+SELECT employee.first_name AS Employee_Branch_Names
+FROM employee
+UNION
+SELECT branch.branch_name
+FROM branch;
+
+-- Find a list of all clients & branch suppliers' names
+SELECT client.client_name AS Non-Employee_Entities, client.branch_id AS Branch_ID
+FROM client
+UNION
+SELECT branch_supplier.supplier_name, branch_supplier.branch_id
+FROM branch_supplier;
